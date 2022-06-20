@@ -1,0 +1,39 @@
+version: 2
+
+models:
+
+  - name: int_user_orders
+    description: Users, orders, products, order_items, and addresses
+    columns:
+      - name: order_guid
+        description: unique ID for the order placed
+      - name: user_guid
+        description: unique user ID for each registered customer on Greenery's website
+      - name: first_name
+        description: first name of the user
+      - name: last_name
+        description: last name of the user
+      - name: address
+        description: registered address of the user
+      - name: state
+        description: State this delivery address is based in
+      - name: country
+        description: Country this delivery address is based in
+      - name: product_name
+        description: Name of the product
+      - name: quantity
+        description: Number of units of the product in this order
+      - name: order_created_at_utc
+        description: timestamp when the order was created in UTC
+      - name: delivered_at_utc
+        description: actual timestamp of delivery in UTC
+      - name: order_cost
+        description: price of the order (only the items)
+      - name: shipping_cost
+        description: price of shipping the order
+      - name: order_total
+        description: total price of the order (items + shipping)
+      - name: shipping_service
+        description: company that was used for shipping
+      - name: order_status
+        description: status of order (preparing, shipped, delivered, etc.)   

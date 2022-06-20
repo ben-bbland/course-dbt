@@ -1,0 +1,27 @@
+version: 2
+
+models:
+
+  - name: int_session_events_basic_agg
+    description: Fact table regarding unique sessions on Greenery's website
+    columns:
+      - name: session_guid
+        description: unique ID for the user sessions
+        tests:
+          - unique
+          - not_null
+      - name: created_at_utc
+        description: UTC timestamp for the start of the user session
+      - name: user_guid
+        description: the unique ID for the user having the given session
+        tests: 
+          - unique
+          - not_null
+      - name: package_shipped
+        description: count of package_shipped shipped events during the given session
+      - name: page_view
+        description: count of page view events during the given session
+      - name: checkout
+        description: count of checkout events during the given session
+      - name: add_to_cart
+        description: count of add to cart events during the given session

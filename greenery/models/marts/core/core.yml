@@ -1,0 +1,75 @@
+version: 2
+
+models:
+
+  - name: dim_products
+    description: Product dimensional table
+    columns:
+      - name: product_guid
+        description: unique product ID for each product sold by Greenery
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: name of the plant/flower
+      - name: product_price
+        description: price of the item
+      - name: inventory
+        description: quantity that is stocked in Greenery's warehouse
+  
+
+  - name: dim_users
+    description: User dimensional table
+    columns:
+      - name: user_guid
+        description: unique user ID for each registered customer on Greenery's website
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: first name of the user
+      - name: last_name
+        description: last name of the user
+      - name: email
+        description: email address of the user
+      - name: phone_number
+        description: phone number of the user
+      - name: created_at_utc
+        description: timestamp the user was created in UTC
+      - name: updated_at_utc
+        description: timestamp the user was last updated in UTC
+      - name: address_guid
+        description: registered delivery address for the user
+
+  - name: fct_orders
+    description: Order fact table
+    columns:
+      - name: order_guid
+        description: unique id for each order placed on Greenery's website
+        tests:
+          - not_null
+          - unique
+      - name: user_guid
+        description: unique user ID for each registered customer on Greenery's website
+      - name: promo_guid
+        description: promo code used with order (may be NULL if no code was used)
+      - name: address_guid
+        description: registered delivery address for the order
+      - name: created_at_utc
+        description: timestamp when the order was created in UTC
+      - name: order_cost
+        description: total price of the items in the order
+      - name: shipping_cost_usd
+        description: shipping cost for the order
+      - name: order_total
+        description: order cost plus shipping cost for the specified order
+      - name: tracking_guid
+        description: tracking number for the order
+      - name: shipping_service
+        description: company that was used for shipping
+      - name: estimated_delivery_at_utc
+        description: estimated date of delivery in UTC
+      - name: delivered_at_utc
+        description: actual timestamp of delivery in UTC
+      - name: order_status
+        description: status of the order

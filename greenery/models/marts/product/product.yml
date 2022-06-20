@@ -1,0 +1,34 @@
+version: 2
+
+models:
+
+  - name: fct_sessions
+    description: Fact table regarding unique sessions on Greenery's website
+    columns:
+      - name: session_guid
+        description: unique ID for the user sessions
+        tests:
+          - unique
+          - not_null
+      - name: user_guid
+        description: unique ID for user having the session
+        tests:  
+          - unique
+          - not_null
+      - name: first_name
+        description: first name of the user having the session
+      - name: last_name
+        description: last name of the user having the session
+      - name: email
+        description: email address of the user having the session
+      - name: page_view
+        description: total page view events that occurred in the given session
+      - name: add_to_cart
+        description: total add to cart events that occurred in the given session
+      - name: checkout
+        description: total checkout events that occurred in the given session
+      - name: package shipped
+        description: shows if package was shipped during the given session
+      - name: session_length_minutes
+        description: shows the total length in minutes of the given session
+        
